@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  express-hello-world:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: express-hello-world
+    ports:
+      - "7832:7832"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/app
+      - /app/node_modules
